@@ -1,0 +1,378 @@
+:root {
+    --shadow: 2px 2px 4px 0 rgba(225, 81, 81, 0.51);
+    --secondaryColor: pink;
+}
+
+button {
+    box-shadow: var(--shadow);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e2e8f0;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    min-width: 550px;
+    height: 100vh;
+
+    /*The container is divided into 4 grid areas*/
+    /* nav, header, main, aside */
+    display: grid;
+    grid-template-columns: max-content minmax(20px, 2fr) 0.8fr;
+    grid-auto-rows: 125px auto;
+}
+
+nav {
+    grid-area: 1 / 1 / 4 / 2;
+}
+
+.header {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+.header {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    box-shadow: var(--shadow);
+}
+
+aside {
+    padding: 5px;
+    grid-area: 2 / 3 / 4 / 4;
+}
+
+main {
+    grid-area: 2 / 2 / 4 / 3;
+}
+/*----------------------------------------*/
+
+
+/*-Begin Left side navigation-------*/
+nav {
+    /*padding-top: 30px;*/
+    padding: 30px 10px 10px;
+    background-color: #1B93D4FF;
+}
+
+ul {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: none;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, minmax(25px, auto)) 75px repeat(auto-fill, minmax(25px, auto));
+    gap: 15px;
+    align-items: start;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+a {
+    display: flex;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-icon {
+    width: 22px;
+    margin-right: 5px;
+}
+
+.site-icon {
+    width: 32px;
+    margin-right: 1px;
+}
+/*-End Left side navigation-------*/
+
+
+/*-Begin Top Header-------*/
+/*The Header got divided tinto 3center areas*/
+/*Search, Intro-Info, menu */
+.quadrant-search {
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+}
+.quadrant-search label {
+    flex-grow: 1;
+    display: flex;
+}
+.search-button {
+    width: 24px;
+}
+input {
+    background-color: #E2E8F0FF;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/*---------------------*/
+.quadrant-info {
+    padding-left: 16px;
+    display: grid;
+    grid-template-columns: auto 3fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+}
+.quadrant-info > span:nth-of-type(1) {
+    font-size: large;
+    align-self: end;
+}
+.quadrant-info > span:nth-of-type(2) {
+    font-size: large;
+    align-self: start;
+}
+.quadrant-info img {
+    grid-area: 1 / 1 / 3 / 2;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+/*---------------------*/
+.quadrant-menu {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    align-items: center;
+}
+.quadrant-menu button {
+    background-color: #1B93D4FF;
+    border-radius: 16px;
+    border: none;
+    color: #ffffff;
+    padding: 8px 15px;
+    margin-right: 10px;
+}
+/*-End Top Header-------*/
+
+
+/*-Begin  Main area (cards)-------*/
+main {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr) );
+    grid-template-rows: min-content auto;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+main h1 {
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: -1; /* Nice....This will span to end of the column*/
+}
+
+.card {
+    border-left: 8px solid var(--secondaryColor);
+
+    padding: 8px;
+    background-color: #ffffff;
+    font-size: 0.7em;
+}
+.card-menu {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+.card-icon {
+    width: 16px;
+}
+/*-End Main----*/
+
+
+/*-Begin Aside Column------*/
+#announcement-area {
+    background-color: white;
+    align-self: center;
+    padding: 12px;
+    margin-top: 16px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 8px;
+}
+.announcement-item {
+    border-bottom: 2px solid rebeccapurple;
+    padding-bottom: 8px;
+    font-size: 0.7em;
+}
+.announcement-item:last-child {
+    border: none;
+    padding: 0;
+}
+
+/*----------------*/
+#trending-area {
+    margin-top: 16px;
+    background-color: white;
+    padding: 8px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 8px;
+}
+
+#announcement-area,
+#trending-area,
+.card {
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+
+.trend-item {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    padding: 8px;
+}
+
+.trend-item img {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    margin-right: 8px;
+}
+
+.trend-item strong {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.trend-item span {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+/*-End Aside Column------*/
+
+h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+h2, p {
+    margin: 0;
+}
+
+h2 {
+    font-size: small;
+    padding-bottom: 4px;
+}
+
+.lixo-logo {
+    background-color: var(--secondaryColor);
+    border-radius: 30px;
+    padding: 2px;
+    width: 30px;
+}
+
+.alert {
+    width: 24px;
+}
+
+
+.card:hover,
+li:active,
+.announcement-item:active,
+.alert:active,
+button:active,
+.trend-item:active {
+    transform: scale(1.06);
+}
+.search-button:active,
+.card-icon:active {
+    transform: scale(1.50);
+}
+
+li:hover {
+    border-bottom: 2px solid var(--secondaryColor);
+}
+
+
+/*----------------------------------------------*/
+/*----------------------------------------------*/
+@media (max-width: 430px) {
+    .container > div {
+        background-color: #ed64cd;
+    }
+
+    .container {
+        min-width: inherit;
+        grid-template-columns: min-content minmax(20px, 1fr);
+        grid-auto-rows: auto;
+    }
+
+    nav {
+        grid-area: 1 / 1 / 6 / 2;
+    }
+
+    .header {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    main {
+        gap: 8px;
+    }
+
+    aside {
+        grid-area: 4 / 2 / 6 / 3;
+    }
+
+    .header {
+        grid-template-columns: 2fr;
+    }
+
+    .quadrant-search {
+        padding: 10px 20px 10px;
+        gap: 16px;
+    }
+
+    .quadrant-info {
+        grid-area: 2 / 1 / 3 / 2;
+        justify-content: center;
+    }
+
+    .quadrant-menu {
+        margin-top: 22px;
+        grid-area: 4 / 1 / 5 / 2;
+        justify-content: end;
+        padding-right: 16px;
+    }
+
+    #announcement-area, #trending-area {
+        margin-top: 4px;
+    }
+
+    .site-icon {
+        margin: 5px;
+    }
+
+    a, .site-logo {
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        color: transparent;
+        justify-content: center;
+    }
+}
